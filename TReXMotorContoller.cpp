@@ -29,19 +29,6 @@ void setMotors(double new_motor_left_speed, double new_motor_right_speed) {
   trex.write((byte)trex_right_speed);
 }
 
-/*
- * Returns the calculated angular velocity from all of
- * the samples. currently it just returns the average
- * of all the samples.
- */
-double getAngularVelocityFromSamples(double* samples) {
-  double total = 0;
-  for (size_t count = 0; count < NUM_VEL_SAMPLES; count++) {
-    total += samples[count];
-  }
-  return total / NUM_VEL_SAMPLES;
-}
-
 bool setTRexConfiguration(byte parameter, byte value) {
   trex.write(0xAF);      // Set configuration parameter command
   trex.write(parameter); // Set parameter to change
